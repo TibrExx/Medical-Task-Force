@@ -36,3 +36,4 @@ out/
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 src/main/resources/static
+application-local-secret.yaml
