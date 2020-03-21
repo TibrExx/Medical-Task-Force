@@ -9,3 +9,10 @@ spring:
     url: jdbc:postgresql://${RDS_HOSTNAME}:${RDS_PORT}/${RDS_DB_NAME}
     username: ${RDS_USERNAME}
     password: ${RDS_PASSWORD}
+  security:
+    oauth2:
+     client:
+      registration:
+       google:
+        clientId: 87896894959-9inbopi0v3cebs1rktlpk0vb70qd4vvu.apps.googleusercontent.com
+        clientSecret: ggQy1cPWgJUruljSpPmitwy5
