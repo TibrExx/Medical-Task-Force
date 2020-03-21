@@ -8,10 +8,11 @@
 * PostgreSQL
 
 ## Links / Resource
-* https://devpost.com/software/0834-medizinischespersonalverwaltung-spaceboys
-* https://docs.google.com/document/d/1JrAlGroRg-9DPVxBYAVujtADHT-ZkzVZr2Epb-70xac/edit#
+* Devpost: https://devpost.com/software/0834-medizinischespersonalverwaltung-spaceboys
+* Concept: https://docs.google.com/document/d/1JrAlGroRg-9DPVxBYAVujtADHT-ZkzVZr2Epb-70xac/edit#
 * Slack: #spaceboys
 * Twitter: #spaceboys #medicalreserve
+* Github: https://github.com/TibrExx/Medical-Task-Force
 
 ## Testinstance
 * http://prod.eba-pipszcdb.eu-central-1.elasticbeanstalk.com/
