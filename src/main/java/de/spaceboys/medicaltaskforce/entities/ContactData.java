@@ -4,8 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Entity
@@ -17,8 +15,6 @@ public class ContactData {
   private Long id;
 
   @Column
-  @NotEmpty
-  @Email
   private String mailAddress;
 
   @Column
