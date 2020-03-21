@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Form, Button } from "semantic-ui-react";
+import stepFormProps from "./Models";
 
-class UserDetails extends Component<{}, {}> {
+class UserDetails extends Component<stepFormProps, {}> {
 
   saveAndContinue = e => {
     e.preventDefault();
@@ -15,7 +16,7 @@ class UserDetails extends Component<{}, {}> {
         <h1 className="ui centered">Enter User Details</h1>
         <Form.Field>
           <label>First Name</label>
-          <input
+          <input type="firstName"
             placeholder="First Name"
             onChange={this.props.handleChange("firstName")}
             defaultValue={values.firstName}
@@ -23,7 +24,7 @@ class UserDetails extends Component<{}, {}> {
         </Form.Field>
         <Form.Field>
           <label>Last Name</label>
-          <input
+          <input type="lastName"
             placeholder="Last Name"
             onChange={this.props.handleChange("lastName")}
             defaultValue={values.lastName}

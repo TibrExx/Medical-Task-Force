@@ -18,7 +18,7 @@ type SignUpFormState = {
 
 class SignUpForm extends Component<stepFormProps, SignUpFormState> {
   state = {
-    step: 1
+    step: 1,
     firstName: "",
     lastName: "",
     email: "",
@@ -41,8 +41,10 @@ class SignUpForm extends Component<stepFormProps, SignUpFormState> {
     });
   };
 
-  handleChange = input => event => {
-    this.setState({ [input]: event.target.value });
+  handleChange = (input: any) => event => {
+      const newState = this.state
+      newState[input] = event.target.value
+      this.setState(newState);
   };
   render() {
     const { step } = this.state;
