@@ -9,3 +9,10 @@ spring:
     url: jdbc:postgresql://localhost:5432/volunteers
     username: postgres
     password: pass
+  security:
+    oauth2:
+     client:
+      registration:
+       google:
+        clientId: 87896894959-9inbopi0v3cebs1rktlpk0vb70qd4vvu.apps.googleusercontent.com
+        clientSecret: ggQy1cPWgJUruljSpPmitwy5
