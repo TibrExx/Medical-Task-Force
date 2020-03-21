@@ -1,0 +1,11 @@
+server:
+  port: 9000
+spring:
+  jpa:
+    hibernate.ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/volunteers
+    username: postgres
+    password: pass
