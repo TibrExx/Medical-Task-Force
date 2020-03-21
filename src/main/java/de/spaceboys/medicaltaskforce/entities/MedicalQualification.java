@@ -33,7 +33,8 @@ public class MedicalQualification {
     EMT,
     MEDICAL_ASSISTANT,
     NURSE,
-    NURSING_ASSISTANT;
+    NURSING_ASSISTANT,
+    OTHER;
   }
 
 

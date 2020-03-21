@@ -2,7 +2,9 @@ package de.spaceboys.medicaltaskforce.entities;
 
 import static javax.persistence.EnumType.STRING;
 
+import java.util.List;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -20,11 +22,12 @@ public class Mobility {
   @Column
   private Boolean hasCar;
 
-  @Column
   @Enumerated(STRING)
-  private LicenseClasses licenseClasses;
+  @Column
+  @ElementCollection
+  private List<LicenseClasses> licenseClasses;
 
-  enum LicenseClasses {
+  public enum LicenseClasses {
     CAR,
     TRUCK,
     BUS
