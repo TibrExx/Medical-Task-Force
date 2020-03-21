@@ -66,7 +66,7 @@ public class DataCreator {
   private MedicalQualification createMedicalQualification() {
     MedicalQualification medicalQualification = new MedicalQualification();
     medicalQualification.setLastTimeActive(
-        faker.date().past(300, TimeUnit.DAYS).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        faker.date().past(10000, TimeUnit.DAYS).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
     medicalQualification.setQualification(randomEnum(Qualification.class));
     return medicalQualification;
   }
