@@ -16,7 +16,15 @@
 
 ## Testinstance
 * http://prod.eba-pipszcdb.eu-central-1.elasticbeanstalk.com/
+* AWS account
+* * ID: 198891906952
+* * Name: wirvsvirus-spaceboys 
+* * credential -> @Andreas Voit
 
 ## Start app
 * create `postgres via docker docker run --name postgres -e POSTGRES_PASSWORD=pass -e POSTGRES_USER=postgres -e POSTGRES_DB=volunteers -p 5432:5432 postgres`
 * run `./gradlew bootRun`
+
+## Beanstalk deplyoment
+* set aws profile `eb-cli` and post aws access key and secret for
+* run `deploy-beanstalk.sh` script
