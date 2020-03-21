@@ -16,7 +16,7 @@ class UserDetails extends Component<stepFormProps, {}> {
         <h1 className="ui centered">Enter User Details</h1>
         <Form.Field>
           <label>First Name</label>
-          <input type="firstName"
+          <input type="text"
             placeholder="First Name"
             onChange={this.props.handleChange("firstName")}
             defaultValue={values.firstName}
@@ -24,7 +24,7 @@ class UserDetails extends Component<stepFormProps, {}> {
         </Form.Field>
         <Form.Field>
           <label>Last Name</label>
-          <input type="lastName"
+          <input type="text"
             placeholder="Last Name"
             onChange={this.props.handleChange("lastName")}
             defaultValue={values.lastName}
