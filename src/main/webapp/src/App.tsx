@@ -7,6 +7,7 @@ import {Button} from "@material-ui/core";
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import SignUpForm from "./components/SignUpForm";
 import WelcomeScreen from "./components/WelcomeScreen";
+import ListView from "./container/ListView";
 
 export default function App() {
   return (
@@ -18,6 +19,9 @@ export default function App() {
             <Switch>
               <Route path="/signup">
                 <SignUpForm />
+              </Route>
+              <Route path="/list">
+                <ListView />
               </Route>
               <Route path="/">
                 <WelcomeScreen />
