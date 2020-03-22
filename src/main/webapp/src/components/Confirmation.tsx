@@ -2,21 +2,28 @@ import React, {Component} from "react";
 import {Button, List} from "semantic-ui-react";
 import stepFormProps from "./Models";
 import axios from 'axios';
-import {apiUrl, apiUrlLocal, basePath} from "../config";
+import {apiUrl, basePath} from "../config";
 import {SignUpFormState} from "./SignUpForm";
 import {toRestModel} from "../models/restModels";
+import {connect} from "react-redux";
 
-class Confirmation extends Component<stepFormProps, {}> {
 
+class Confirmation extends Component<stepFormProps, any> {
+
+    constructor(props) {
+        super(props);
+    }
     saveAndContinue = async e => {
         e.preventDefault();
-
         const signUpFormState: SignUpFormState = this.props.values
         console.log(signUpFormState)
         console.log("pasting to: " + `${apiUrl}${basePath}/volunteers`)
         // api call
+
+        const googleId = this.props.gId
+
         const result = await axios.post(
-            `${apiUrl}${basePath}/volunteers`, toRestModel(signUpFormState)
+            `${apiUrl}${basePath}/volunteers`, toRestModel(signUpFormState, googleId)
         );
         console.log(JSON.stringify(result))
 
@@ -71,4 +78,10 @@ class Confirmation extends Component<stepFormProps, {}> {
     }
 }
 
-export default Confirmation;
+const mapStateToProps = (state: any) => {
+    return {
+        gId: state.auth.googleId
+    };
+};
+
+export default connect(mapStateToProps)(Confirmation);

@@ -1,10 +1,10 @@
 
 
-export function login(token: string, image: string) {
+export function login(token: string, image: string, googleId: string) {
   return (dispatch: any) => {
     dispatch({
       type: "LOGIN",
-      payload: {token, image}
+      payload: {token, image, googleId}
     });
   }
 }
