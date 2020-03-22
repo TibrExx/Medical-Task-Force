@@ -14,10 +14,10 @@ class Confirmation extends Component<stepFormProps, {}> {
 
         const signUpFormState: SignUpFormState = this.props.values
         console.log(signUpFormState)
-        console.log("pasting to: " + `${apiUrlLocal}${basePath}/volunteers`)
+        console.log("pasting to: " + `${apiUrl}${basePath}/volunteers`)
         // api call
         const result = await axios.post(
-            `${apiUrlLocal}${basePath}/volunteers`, toRestModel(signUpFormState)
+            `${apiUrl}${basePath}/volunteers`, toRestModel(signUpFormState)
         );
         console.log(JSON.stringify(result))
 
