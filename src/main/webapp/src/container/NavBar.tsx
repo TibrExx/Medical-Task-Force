@@ -15,7 +15,7 @@ class NavBar extends Component<any, any> {
   googleResponse = (response: any) => {
     console.log(response);
     if (response.accessToken) {
-      this.props.login(response.accessToken, response.profileObj.imageUrl);
+      this.props.login(response.accessToken, response.profileObj.imageUrl, response.googleId);
     }
   };
 
@@ -68,8 +68,8 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    login: (token: any, image: string) => {
-      dispatch(login(token, image));
+    login: (token: any, image: string, googleId: string) => {
+      dispatch(login(token, image, googleId));
     }
   }
 };

@@ -18,7 +18,7 @@ export interface Volunteer {
 }
 
 
-export function toRestModel(signUpFormState: SignUpFormState): Volunteer {
+export function toRestModel(signUpFormState: SignUpFormState, googleId: string): Volunteer {
     console.log("formState: " + signUpFormState)
     const result =  {
         zipCode: 0,
@@ -28,9 +28,11 @@ export function toRestModel(signUpFormState: SignUpFormState): Volunteer {
         lastTimeActive: "2020-03-22",
         mailAddress: signUpFormState.email,
         hasCar: signUpFormState.hasCar,
-        googleId: "asd"
+        googleId: googleId
     }
     console.log("volunteer: "+JSON.stringify(result))
 
     return result
 }
+
+
