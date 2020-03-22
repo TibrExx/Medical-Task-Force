@@ -32,7 +32,7 @@ class NavBar extends Component<any, any> {
           )}
           buttonText="Login"
           onSuccess={this.googleResponse}
-          onFailure={() => alert("login failed")}
+          onFailure={this.googleResponse}
         />
       );
 

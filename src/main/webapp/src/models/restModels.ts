@@ -2,12 +2,18 @@ import {SignUpFormState} from "../components/SignUpForm";
 
 export interface Volunteer {
     zipCode: number,
+    streetName?: number
+    number?: number
     surname: string,
     forename: string,
     qualification: string,
     lastTimeActive: string,
+    description?: string,
     mailAddress: string,
-    hasCar: boolean
+    phoneNumer?: string
+    hasCar: boolean,
+    licenseClasses?: any,
+    languages?: string[]
 }
 
 
