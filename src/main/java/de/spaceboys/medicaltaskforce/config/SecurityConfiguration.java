@@ -11,20 +11,20 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Slf4j
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Value("${oauth.enable}")
-    private boolean oauthEnabeled;
+  @Value("${oauth.enable}")
+  private boolean oauthEnabled;
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        if(oauthEnabeled) {
-            log.warn("Oauth is disabled");
-        }
-        if (oauthEnabeled) {
-            http.authorizeRequests()
-                    .anyRequest()
-                    .authenticated()
-                    .and()
-                    .oauth2Login();
-        }
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    if (oauthEnabled) {
+      http.authorizeRequests()
+          .anyRequest()
+          .authenticated()
+          .and()
+          .oauth2Login();
+    } else {
+      log.warn("Oauth is disabled");
+      http.authorizeRequests().antMatchers("/**").permitAll().and().csrf().disable();
     }
+  }
 }

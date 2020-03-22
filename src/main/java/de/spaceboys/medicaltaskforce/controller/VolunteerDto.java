@@ -45,4 +45,12 @@ public class VolunteerDto {
   private List<LicenseClasses> licenseClasses;
 
   private List<String> languages;
+
+  private Boolean upToTwoDaysDuty;
+
+  private Boolean upToFiveDaysDuty;
+
+  private Boolean weekendDuty;
+
+  private Integer yearsOfPractice;
 }

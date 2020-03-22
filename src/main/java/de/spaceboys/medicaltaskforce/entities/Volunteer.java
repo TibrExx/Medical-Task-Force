@@ -43,4 +43,8 @@ public class Volunteer {
 
   @ElementCollection
   private List<String> languages;
+
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "availability_id")
+  private Availability availability;
 }
