@@ -1,6 +1,7 @@
 package de.spaceboys.medicaltaskforce.testData;
 
 import com.github.javafaker.Faker;
+import de.spaceboys.medicaltaskforce.entities.Availability;
 import de.spaceboys.medicaltaskforce.entities.ContactData;
 import de.spaceboys.medicaltaskforce.entities.MedicalQualification;
 import de.spaceboys.medicaltaskforce.entities.MedicalQualification.Qualification;
@@ -20,7 +21,7 @@ import org.springframework.scheduling.annotation.Async;
 
 @RequiredArgsConstructor
 @Slf4j
-public class DataCreator {
+public class TestDataCreator {
 
   private final TestDataProperties testDataProperties;
   private final VolunteerRepository volunteerRepository;
@@ -41,11 +42,20 @@ public class DataCreator {
         volunteer.setLanguages(Collections.singletonList(faker.nation().language()));
         volunteer.setMedicalQualification(createMedicalQualification());
         volunteer.setMobility(createMobility());
+        volunteer.setAvailability(createAvailability());
         volunteer.setUserAddress(createUserAddress());
         volunteerRepository.save(volunteer);
       }
       log.info("Saved new entries");
     });
+  }
+
+  private Availability createAvailability() {
+    Availability availability = new Availability();
+    availability.setUpToFiveDaysDuty(faker.bool().bool());
+    availability.setUpToTwoDaysDuty(faker.bool().bool());
+    availability.setWeekendDuty(faker.bool().bool());
+    return availability;
   }
 
   private UserAddress createUserAddress() {
@@ -68,6 +78,7 @@ public class DataCreator {
     medicalQualification.setLastTimeActive(
         faker.date().past(10000, TimeUnit.DAYS).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
     medicalQualification.setQualification(randomEnum(Qualification.class));
+    medicalQualification.setYearsOfPractice(faker.number().numberBetween(1, 40));
     return medicalQualification;
   }
 

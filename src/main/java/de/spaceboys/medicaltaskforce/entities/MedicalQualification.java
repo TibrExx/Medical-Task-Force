@@ -26,6 +26,9 @@ public class MedicalQualification {
   private LocalDate lastTimeActive;
 
   @Column
+  private Integer yearsOfPractice;
+
+  @Column
   private String description;
 
   public enum Qualification {

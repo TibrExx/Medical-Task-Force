@@ -9,11 +9,11 @@ import org.springframework.context.event.EventListener;
 @Slf4j
 public class TestDataInitializer {
 
-  private final DataCreator dataCreator;
+  private final TestDataCreator testDataCreator;
 
   @EventListener(ApplicationReadyEvent.class)
   public void init() {
-    dataCreator.createTestData();
+    testDataCreator.createTestData();
   }
 
 }

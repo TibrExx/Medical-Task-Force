@@ -26,7 +26,7 @@ public class TestDataConfiguration {
   }
 
   @Bean
-  public DataCreator dataCreator() {
-    return new DataCreator(testDataProperties, volunteerRepository, faker());
+  public TestDataCreator dataCreator() {
+    return new TestDataCreator(testDataProperties, volunteerRepository, faker());
   }
 }
