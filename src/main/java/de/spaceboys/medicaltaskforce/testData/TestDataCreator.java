@@ -44,7 +44,7 @@ public class TestDataCreator {
         volunteer.setMobility(createMobility());
         volunteer.setAvailability(createAvailability());
         volunteer.setUserAddress(createUserAddress());
-        volunteer.setGoogleId(faker.number().randomNumber(15, true));
+        volunteer.setGoogleId(String.valueOf(faker.number().randomNumber(15, true)));
         volunteerRepository.save(volunteer);
       }
       log.info("Saved new entries");
