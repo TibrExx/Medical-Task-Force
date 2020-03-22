@@ -2,7 +2,9 @@ import React, {Component} from "react";
 import {Button, List} from "semantic-ui-react";
 import stepFormProps from "./Models";
 import axios from 'axios';
-import {apiUrl, basePath} from "../config";
+import {apiUrl, apiUrlLocal, basePath} from "../config";
+import {SignUpFormState} from "./SignUpForm";
+import {toRestModel} from "../models/restModels";
 
 
 class Confirmation extends Component<stepFormProps, {}> {
@@ -10,12 +12,14 @@ class Confirmation extends Component<stepFormProps, {}> {
     saveAndContinue = async e => {
         e.preventDefault();
 
-        const postBody = this.props.values
-        console.log(postBody)
+        const signUpFormState: SignUpFormState = this.props.values
+        console.log(signUpFormState)
+        console.log("pasting to: " + `${apiUrlLocal}${basePath}/volunteers`)
         // api call
-        // const result = await axios.post(
-        //     `${apiUrl}${basePath}/volunteers`, postBody
-        // );
+        const result = await axios.post(
+            `${apiUrlLocal}${basePath}/volunteers`, toRestModel(signUpFormState)
+        );
+        console.log(JSON.stringify(result))
 
         this.props.nextStep();
     };
