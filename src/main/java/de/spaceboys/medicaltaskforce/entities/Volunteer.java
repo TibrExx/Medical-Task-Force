@@ -45,7 +45,7 @@ public class Volunteer {
   private List<String> languages;
 
   @Column(unique = true)
-  private Long googleId;
+  private String googleId;
 
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "availability_id")
