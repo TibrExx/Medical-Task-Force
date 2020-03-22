@@ -5,23 +5,23 @@ import Confirmation from "./Confirmation";
 import Success from "./Success";
 import stepFormProps from "./Models";
 
-enum qualifications {
-    geriaticNurse = "Altenpfleger/in",
-    geriaticNurseHelper = "Altenpflegehelfer/in",
-    doctor = "Arzt",
-    healthGeriaticNurse = "Gesundheits- und Krankenpfleger/in",
-    healtGeriaticNurseHelper = "Gesundheits- und Krankenpflegehelfer/in",
-    midwife = "Hebamme",
-    healthNurse = "Heilerziehungspfleger/in",
-    medicalWorker = "Medizinische Fachangestellte",
-    emergencyParamedic = "Notfallsanitäter/in",
-    technicalAssistant = "Operationstechnischer Assistent/in",
-    paramedicAssistant = "Rettungsassistent",
-    paramedic = "Rettungssanitäter/in",
-    emergencyHelper = "Rettungshelfer"
-};
+const qualifications = [
+      { key: 'geriaticNurse', text: 'Altenpfleger/in', value: 'geriaticNurse' },
+      { key: 'geriaticNurseHelper', text: 'Altenpflegehelfer/in', value: 'geriaticNurseHelper' },
+      { key: 'doctor', text: 'Arzt', value: 'doctor' },
+      { key: 'healthGeriaticNurse', text: 'Gesundheits- und Krankenpfleger/in', value: 'healthGeriaticNurse' },
+      { key: 'healtGeriaticNurseHelper', text: 'Gesundheits- und Krankenpflegehelfer/in', value: 'healtGeriaticNurseHelper' },
+      { key: 'midwife', text: 'Hebamme', value: 'midwife' },
+      { key: 'healthNurse', text: 'Heilerziehungspfleger/in', value: 'healthNurse' },
+      { key: 'medicalWorker', text: 'Medizinische Fachangestellte', value: 'medicalWorker' },
+      { key: 'emergencyParamedic', text: 'Notfallsanitäter/in', value: 'emergencyParamedic' },
+      { key: 'technicalAssistant', text: 'Operationstechnischer Assistent/in', value: 'technicalAssistant' },
+      { key: 'paramedicAssistant', text: 'Rettungsassistent', value: 'paramedicAssistant' },
+      { key: 'paramedic', text: 'Rettungssanitäter/in', value: 'paramedic' },
+      { key: 'emergencyHelper', text: 'Rettungshelfer', value: 'emergencyHelper' },
+      ];
 
-export interface SignUpFormState  {
+type SignUpFormState = {
   step: number,
   firstName: string,
   lastName: string,
@@ -30,7 +30,7 @@ export interface SignUpFormState  {
   city: string,
   country: string,
   phoneNumber: number,
-  qualification: qualifications,
+  qualification: {qualifications},
   lastTimeActive: Date,
   description: string,
   hasCar: boolean,
@@ -46,9 +46,9 @@ class SignUpForm extends Component<stepFormProps, SignUpFormState> {
     age: "",
     city: "",
     country: "",
-    phoneNumber: undefined,
-    qualification: qualifications.geriaticNurse,
-    lastTimeActive: undefined,
+    phoneNumber: 1,
+    qualification: undefined,
+    lastTimeActive: new Date(),
     description: "",
     hasCar: true
   };
@@ -74,8 +74,8 @@ class SignUpForm extends Component<stepFormProps, SignUpFormState> {
   };
   render() {
     const { step } = this.state;
-    const { firstName, lastName, email, age, city, country } = this.state;
-    const values = { firstName, lastName, email, age, city, country };
+    const { firstName, lastName, email, age, city, country, phoneNumber, qualification, lastTimeActive, description, hasCar } = this.state;
+    const values = { firstName, lastName, email, age, city, country, phoneNumber, qualification, lastTimeActive, description, hasCar };
     switch (step) {
       case 1:
         return (
