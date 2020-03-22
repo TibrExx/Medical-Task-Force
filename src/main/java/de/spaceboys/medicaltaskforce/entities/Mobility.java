@@ -22,9 +22,8 @@ public class Mobility {
   @Column
   private Boolean hasCar;
 
-  @Enumerated(STRING)
-  @Column
   @ElementCollection
+  @Enumerated(STRING)
   private List<LicenseClasses> licenseClasses;
 
   public enum LicenseClasses {

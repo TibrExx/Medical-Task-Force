@@ -9,3 +9,14 @@ spring:
     url: jdbc:postgresql://${RDS_HOSTNAME}:${RDS_PORT}/${RDS_DB_NAME}
     username: ${RDS_USERNAME}
     password: ${RDS_PASSWORD}
+  security:
+    oauth2:
+     client:
+      registration:
+       google:
+        clientId: ${GOOGLE_CLIENT_ID}
+        clientSecret: ${GOOGLE_CLIENT_SECRET}
+medicaltaskforce:
+  testdata:
+    enabled: true
+    amount-of-test-entries: 100
