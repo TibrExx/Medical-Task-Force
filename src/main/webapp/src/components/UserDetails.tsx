@@ -89,8 +89,6 @@ class UserDetails extends Component<stepFormProps, {}> {
                     </Form.Field>
 
           <Form.Checkbox label='Auto vorhanden' onChange = {this.props.handleChange("hasCar")} />
-
-
         <Button onClick={this.saveAndContinue}>Speichern und weiter </Button>
       </Form>
     );
