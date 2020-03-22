@@ -13,20 +13,24 @@ export interface Volunteer {
     phoneNumer?: string
     hasCar: boolean,
     licenseClasses?: any,
-    languages?: string[]
+    languages?: string[],
+    googleId: string
 }
 
 
 export function toRestModel(signUpFormState: SignUpFormState): Volunteer {
     console.log("formState: " + signUpFormState)
-
-    return {
+    const result =  {
         zipCode: 0,
         surname: signUpFormState.lastName,
         forename: signUpFormState.firstName,
         qualification: signUpFormState.qualification?.toString(),
-        lastTimeActive: signUpFormState.lastTimeActive?.toString(),
+        lastTimeActive: "2020-03-22",
         mailAddress: signUpFormState.email,
-        hasCar: signUpFormState.hasCar
+        hasCar: signUpFormState.hasCar,
+        googleId: "asd"
     }
+    console.log("volunteer: "+JSON.stringify(result))
+
+    return result
 }
