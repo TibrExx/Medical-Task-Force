@@ -1,22 +1,48 @@
-import React, {useEffect, useState} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import React, {forwardRef, useEffect, useState} from 'react';
+import {makeStyles} from '@material-ui/core/styles';
+import MaterialTable, {Icons} from "material-table";
 import axios from 'axios';
-import { apiUrl, basePath } from '../config';
-import Typography from "@material-ui/core/Typography";
-import ListRows from "./ListRows";
+import {apiUrl, basePath} from '../config';
+import {
+  AddBox, ArrowUpward,
+  Check, ChevronLeft,
+  ChevronRight,
+  Clear,
+  DeleteOutline,
+  Edit,
+  FilterList,
+  FirstPage, LastPage,
+  Remove, SaveAlt, Search,
+  ViewColumn, Email, Flag
+} from "@material-ui/icons";
+
+const tableIcons: Icons = {
+  Add: forwardRef((props, ref) => <AddBox {...props} ref={ref}/>),
+  Check: forwardRef((props, ref) => <Check {...props} ref={ref}/>),
+  Clear: forwardRef((props, ref) => <Clear {...props} ref={ref}/>),
+  Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref}/>),
+  DetailPanel: forwardRef((props, ref) => <ChevronRight {...props} ref={ref}/>),
+  Edit: forwardRef((props, ref) => <Edit {...props} ref={ref}/>),
+  Export: forwardRef((props, ref) => <SaveAlt {...props} ref={ref}/>),
+  Filter: forwardRef((props, ref) => <FilterList {...props} ref={ref}/>),
+  FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref}/>),
+  LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref}/>),
+  NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref}/>),
+  PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref}/>),
+  ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref}/>),
+  Search: forwardRef((props, ref) => <Search {...props} ref={ref}/>),
+  SortArrow: forwardRef((props, ref) => <ArrowUpward {...props} ref={ref}/>),
+  ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref}/>),
+  ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref}/>)
+};
 
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
 });
+
+const generateMail = (mail: string) => (`mailto:${mail}`);
 
 export interface IUserData {
   id: number;
@@ -42,12 +68,12 @@ export interface IUserData {
 export default function ListView() {
   const classes = useStyles();
 
-  const [data, setData] = useState<IUserData[] >([]);
+  const [data, setData] = useState<IUserData[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
-        `${apiUrl}${basePath}/volunteers`,
+          `${apiUrl}${basePath}/volunteers`,
       );
       setData(result.data);
     };
@@ -55,26 +81,43 @@ export default function ListView() {
   }, []);
 
   return (
-    <div>
-      <Typography variant="h5" component="h1" paragraph={true} gutterBottom>
-        Suche nach Helfern:
-      </Typography>
-      <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell><h3>Name</h3></TableCell>
-              <TableCell><h3>Qualifikation (letzte Aktivität)</h3></TableCell>
-              <TableCell><h3>Mobilität</h3></TableCell>
-              <TableCell><h3>PLZ</h3></TableCell>
-              <TableCell><h3>Kontakt</h3></TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <ListRows data={data}/>
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </div>
+      <div>
+        <MaterialTable
+            title="Suche nach Helfern:"
+            icons={tableIcons}
+            columns={[
+              {title: 'Nachname', field: 'surname'},
+              {title: 'Vorname', field: 'forename'},
+              {title: 'Qualifikation', field: 'medicalQualification.qualification'},
+              {title: 'PLZ', field: 'userAddress.zipCode'},
+              {title: 'Mobilität', field: 'mobility.hasCar', lookup: {true: 'Auto', false: 'kein Auto'}},
+            ]}
+            data={data}
+            options={{
+              search: true,
+              filtering: true,
+              sorting: true,
+              pageSize: 10,
+              pageSizeOptions: [10, 20, 50, 100],
+              actionsColumnIndex: -1,
+              headerStyle: {
+                fontWeight: "bold",
+                fontSize: "medium"
+              }
+            }}
+            actions={[
+              {
+                icon: () => <Email/>,
+                tooltip: 'Dem Helfer eine Mail senden',
+                onClick: (event, rowData) => generateMail('test'),
+              },
+              rowData => ({
+                icon: () => <Flag/>,
+                tooltip: 'Den Helfer melden',
+                onClick: (event, rowData) => alert("Helfer gemeldet!")
+              })
+            ]}
+        />
+      </div>
   );
 }
