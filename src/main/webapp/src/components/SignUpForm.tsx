@@ -6,7 +6,7 @@ import Success from "./Success";
 import stepFormProps from "./Models";
 
 
-type SignUpFormState = {
+export interface SignUpFormState  {
   step: number,
   firstName: string,
   lastName: string,
