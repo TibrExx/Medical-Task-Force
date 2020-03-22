@@ -20,7 +20,18 @@ const qualifications = [
       { key: 'emergencyHelper', text: 'Rettungshelfer', value: 'emergencyHelper' },
       ];
 
+
 class UserDetails extends Component<stepFormProps, {}> {
+
+state = {
+    startDate: new Date()
+  };
+
+      handleDateChange = date => {
+        this.setState({
+          startDate: date
+        });
+      };
 
   saveAndContinue = e => {
     e.preventDefault();
@@ -28,6 +39,7 @@ class UserDetails extends Component<stepFormProps, {}> {
   };
 
   render() {
+
     const { values } = this.props;
     return (
       <Form>
@@ -84,7 +96,8 @@ class UserDetails extends Component<stepFormProps, {}> {
              <Form.Field>
                       <label>Zuletzt ausgeübt am</label>
                        <DatePicker
-                            onChange={this.props.handleChange("lastTimeActive")}
+                            onChange={this.handleDateChange}
+                            selected={this.state.startDate}
                             />
                     </Form.Field>
 
