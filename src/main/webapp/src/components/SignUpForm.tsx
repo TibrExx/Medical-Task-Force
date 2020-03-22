@@ -43,6 +43,7 @@ export interface SignUpFormState {
     age: string,
     city: string,
     country: string,
+    zipCode: undefined,
     phoneNumber: number,
     qualification: Qualifiaction,
     lastTimeActive: Date,
@@ -59,8 +60,9 @@ class SignUpForm extends Component<stepFormProps, SignUpFormState> {
         email: "",
         age: "",
         city: "",
+        zipCode: undefined,
         country: "",
-        phoneNumber: 1,
+        phoneNumber: undefined,
         qualification: undefined,
         lastTimeActive: new Date(),
         description: "",
@@ -94,7 +96,7 @@ class SignUpForm extends Component<stepFormProps, SignUpFormState> {
 
     render() {
         const {step} = this.state;
-        const {firstName, lastName, email, age, city, country, phoneNumber, qualification, lastTimeActive, description, hasCar} = this.state;
+        const {firstName, lastName, email, age, city, zipCode, country, phoneNumber, qualification, lastTimeActive, description, hasCar} = this.state;
         const values = {
             firstName,
             lastName,
@@ -102,6 +104,7 @@ class SignUpForm extends Component<stepFormProps, SignUpFormState> {
             age,
             city,
             country,
+            zipCode,
             phoneNumber,
             qualification,
             lastTimeActive,
