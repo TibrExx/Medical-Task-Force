@@ -17,33 +17,33 @@ class PersonalDetails extends Component<stepFormProps, {}> {
     const { values } = this.props;
     return (
       <Form color="blue">
-        <h1 className="ui centered">Enter Personal Details</h1>
+        <h1 className="ui centered">Weitere Kontaktdaten</h1>
         <Form.Field>
-          <label>Age</label>
+          <label>Alter</label>
           <input
-            placeholder="Age"
+            placeholder="Alter"
             onChange={this.props.handleChange("age")}
             defaultValue={values.age}
           />
         </Form.Field>
         <Form.Field>
-          <label>City</label>
+          <label>Stadt</label>
           <input
-            placeholder="City"
+            placeholder="Stadt"
             onChange={this.props.handleChange("city")}
             defaultValue={values.city}
           />
         </Form.Field>
         <Form.Field>
-          <label>Country</label>
+          <label>Land</label>
           <input
-            placeholder="Country"
+            placeholder="Land"
             onChange={this.props.handleChange("country")}
             defaultValue={values.country}
           />
         </Form.Field>
-        <Button onClick={this.back}>Back</Button>
-        <Button onClick={this.saveAndContinue}>Save And Continue </Button>
+        <Button onClick={this.back}>Zurück</Button>
+        <Button onClick={this.saveAndContinue}>Speichern und weiter</Button>
       </Form>
     );
   }

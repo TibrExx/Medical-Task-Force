@@ -6,7 +6,6 @@ import {apiUrl, apiUrlLocal, basePath} from "../config";
 import {SignUpFormState} from "./SignUpForm";
 import {toRestModel} from "../models/restModels";
 
-
 class Confirmation extends Component<stepFormProps, {}> {
 
     saveAndContinue = async e => {
@@ -34,18 +33,18 @@ class Confirmation extends Component<stepFormProps, {}> {
         } = this.props;
         return (
             <div>
-                <h1 className="ui centered">Confirm your Details</h1>
+                <h1 className="ui centered">Eingaben bestätigen</h1>
                 <p>
-                    Click Confirm if the following details have been correctly entered
+                    Klick auf "Bestätigen" wenn deine Daten richtig sind
                 </p>
                 <List>
                     <List.Item>
                         <List.Icon name="users"/>
-                        <List.Content>First Name: {firstName}</List.Content>
+                        <List.Content>Vorname: {firstName}</List.Content>
                     </List.Item>
                     <List.Item>
                         <List.Icon name="users"/>
-                        <List.Content>Last Name: {lastName}</List.Content>
+                        <List.Content>Nachname: {lastName}</List.Content>
                     </List.Item>
                     <List.Item>
                         <List.Icon name="mail"/>
@@ -55,7 +54,7 @@ class Confirmation extends Component<stepFormProps, {}> {
                     </List.Item>
                     <List.Item>
                         <List.Icon name="calendar"/>
-                        <List.Content>{age} Years</List.Content>
+                        <List.Content>{age} Jahre</List.Content>
                     </List.Item>
                     <List.Item>
                         <List.Icon name="marker"/>
@@ -65,8 +64,8 @@ class Confirmation extends Component<stepFormProps, {}> {
                     </List.Item>
                 </List>
 
-                <Button onClick={this.back}>Back</Button>
-                <Button onClick={this.saveAndContinue}>Confirm</Button>
+                <Button onClick={this.back}>Zurück</Button>
+                <Button onClick={this.saveAndContinue}>Bestätigen</Button>
             </div>
         );
     }

@@ -23,15 +23,15 @@ const qualifications = [
 
 class UserDetails extends Component<stepFormProps, {}> {
 
-state = {
-    startDate: new Date()
-  };
+    state = {
+        startDate: new Date()
+    };
 
-      handleDateChange = date => {
-        this.setState({
-          startDate: date
-        });
-      };
+    handleDateChange = date => {
+       this.setState({
+       startDate: date
+    });
+   };
 
   saveAndContinue = e => {
     e.preventDefault();
@@ -43,9 +43,9 @@ state = {
     const { values } = this.props;
     return (
       <Form>
-        <h1 className="ui centered">Enter User Details</h1>
+        <h1 className="ui centered">Kontaktdaten</h1>
         <Form.Field>
-          <label>First Name</label>
+          <label>Vorname</label>
           <input type="text"
             placeholder="First Name"
             onChange={this.props.handleChange("firstName")}
@@ -53,7 +53,7 @@ state = {
           />
         </Form.Field>
         <Form.Field>
-          <label>Last Name</label>
+          <label>Nachname</label>
           <input type="text"
             placeholder="Last Name"
             onChange={this.props.handleChange("lastName")}
@@ -61,7 +61,7 @@ state = {
           />
         </Form.Field>
         <Form.Field>
-          <label>Email Address</label>
+          <label>Email</label>
           <input
             type="email"
             placeholder="Email Address"
@@ -80,16 +80,16 @@ state = {
           />
          </Form.Field>
          <Form.Select
-              label="Berfufung"
+              label="Beruf"
               type="dropdown"
               options = {qualifications}
-              placeholder = 'Berufung'
+              placeholder = 'Beruf'
               onChange={this.props.handleChange("qualification")}
              >
           </Form.Select>
           <Form.TextArea
                 label='Beschreibung'
-                placeholder='Füg etwas zu deiner Berufung hinzu falls du möchtest...'
+                placeholder='Füg etwas zu deinem Beruf hinzu falls du möchtest...'
                 onChange={this.props.handleChange("description")}
                 />
 
@@ -97,6 +97,7 @@ state = {
                       <label>Zuletzt ausgeübt am</label>
                        <DatePicker
                             onChange={this.handleDateChange}
+                            dateFormat='dd/MM/yyyy'
                             selected={this.state.startDate}
                             />
                     </Form.Field>
@@ -104,7 +105,7 @@ state = {
           <Form.Checkbox label='Auto vorhanden' onChange = {this.props.handleChange("hasCar")} />
 
 
-        <Button onClick={this.saveAndContinue}>Save And Continue </Button>
+        <Button onClick={this.saveAndContinue}>Speichern und weiter </Button>
       </Form>
     );
   }
