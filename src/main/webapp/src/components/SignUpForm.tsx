@@ -12,23 +12,27 @@ interface Qualifiaction {
 }
 
 export const qualifications: Qualifiaction[] = [
-    {key: 'geriaticNurse', text: 'Altenpfleger/in', value: 'geriaticNurse'},
-    {key: 'geriaticNurseHelper', text: 'Altenpflegehelfer/in', value: 'geriaticNurseHelper'},
-    {key: 'doctor', text: 'Arzt', value: 'doctor'},
-    {key: 'healthGeriaticNurse', text: 'Gesundheits- und Krankenpfleger/in', value: 'healthGeriaticNurse'},
+    {key: 'geriaticNurse', text: 'Altenpfleger/in', value: 'NURSE'},
+    {key: 'geriaticNurseHelper', text: 'Altenpflegehelfer/in', value: 'NURSING_ASSISTANT'},
+    {key: 'doctor', text: 'Arzt', value: 'OTHER'},
+    {key: 'healthGeriaticNurse', text: 'Gesundheits- und Krankenpfleger/in', value: 'NURSE'},
     {
         key: 'healtGeriaticNurseHelper',
         text: 'Gesundheits- und Krankenpflegehelfer/in',
-        value: 'healtGeriaticNurseHelper'
+        value: 'NURSING_ASSISTANT'
     },
-    {key: 'midwife', text: 'Hebamme', value: 'midwife'},
-    {key: 'healthNurse', text: 'Heilerziehungspfleger/in', value: 'healthNurse'},
-    {key: 'medicalWorker', text: 'Medizinische Fachangestellte', value: 'medicalWorker'},
-    {key: 'emergencyParamedic', text: 'Notfallsanitäter/in', value: 'emergencyParamedic'},
-    {key: 'technicalAssistant', text: 'Operationstechnischer Assistent/in', value: 'technicalAssistant'},
-    {key: 'paramedicAssistant', text: 'Rettungsassistent', value: 'paramedicAssistant'},
-    {key: 'paramedic', text: 'Rettungssanitäter/in', value: 'paramedic'},
-    {key: 'emergencyHelper', text: 'Rettungshelfer', value: 'emergencyHelper'},
+    {key: 'midwife', text: 'Hebamme', value: 'OTHER'},
+    {key: 'healthNurse', text: 'Heilerziehungspfleger/in', value: 'OTHER'},
+    {key: 'medicalWorker', text: 'Medizinische Fachangestellte', value: 'MEDICAL_ASSISTANT'},
+    {key: 'emergencyParamedic', text: 'Notfallsanitäter/in', value: 'PARAMEDIC'},
+    {key: 'technicalAssistant', text: 'Operationstechnischer Assistent/in', value: 'OTHER'},
+    {key: 'paramedicAssistant', text: 'Rettungsassistent', value: 'PARAMEDIC'},
+    {key: 'paramedic', text: 'Rettungssanitäter/in', value: 'EMT'},
+    {key: 'emergencyHelper', text: 'Rettungshelfer', value: 'EMT'},
+
+
+
+
 ];
 
 export interface SignUpFormState {
