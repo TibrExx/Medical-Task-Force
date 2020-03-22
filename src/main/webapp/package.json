@@ -29,7 +29,8 @@
     "redux-thunk": "^2.3.0",
     "semantic-ui-react": "^0.88.2",
     "survey-react": "^1.5.16",
-    "typescript": "~3.7.2"
+    "typescript": "~3.7.2",
+    "material-table": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
