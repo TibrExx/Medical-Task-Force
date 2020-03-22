@@ -21,7 +21,7 @@ export interface Volunteer {
 export function toRestModel(signUpFormState: SignUpFormState, googleId: string): Volunteer {
     console.log("formState: " + signUpFormState)
     const result =  {
-        zipCode: 0,
+        zipCode: signUpFormState.zipCode,
         surname: signUpFormState.lastName,
         forename: signUpFormState.firstName,
         qualification: signUpFormState.qualification?.toString(),
