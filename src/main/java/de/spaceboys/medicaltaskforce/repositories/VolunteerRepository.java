@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface VolunteerRepository extends JpaRepository<Volunteer, Long> {
 
-  Optional<Volunteer> findFirstByGoogleId(Long id);
+  Optional<Volunteer> findFirstByGoogleId(String id);
 
-  void deleteByGoogleId(Long id);
+  void deleteByGoogleId(String id);
 }
