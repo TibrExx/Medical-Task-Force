@@ -5,6 +5,21 @@ import Confirmation from "./Confirmation";
 import Success from "./Success";
 import stepFormProps from "./Models";
 
+enum qualifications {
+    geriaticNurse = "Altenpfleger/in",
+    geriaticNurseHelper = "Altenpflegehelfer/in",
+    doctor = "Arzt",
+    healthGeriaticNurse = "Gesundheits- und Krankenpfleger/in",
+    healtGeriaticNurseHelper = "Gesundheits- und Krankenpflegehelfer/in",
+    midwife = "Hebamme",
+    healthNurse = "Heilerziehungspfleger/in",
+    medicalWorker = "Medizinische Fachangestellte",
+    emergencyParamedic = "Notfallsanitäter/in",
+    technicalAssistant = "Operationstechnischer Assistent/in",
+    paramedicAssistant = "Rettungsassistent",
+    paramedic = "Rettungssanitäter/in",
+    emergencyHelper = "Rettungshelfer"
+};
 
 export interface SignUpFormState  {
   step: number,
@@ -13,7 +28,13 @@ export interface SignUpFormState  {
   email: string,
   age: string,
   city: string,
-  country: string
+  country: string,
+  phoneNumber: number,
+  qualification: qualifications,
+  lastTimeActive: Date,
+  description: string,
+  hasCar: boolean,
+
 };
 
 class SignUpForm extends Component<stepFormProps, SignUpFormState> {
@@ -24,7 +45,12 @@ class SignUpForm extends Component<stepFormProps, SignUpFormState> {
     email: "",
     age: "",
     city: "",
-    country: ""
+    country: "",
+    phoneNumber: undefined,
+    qualification: qualifications.geriaticNurse,
+    lastTimeActive: undefined,
+    description: "",
+    hasCar: true
   };
 
   nextStep = () => {

@@ -63,11 +63,11 @@ export default function ListView() {
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell>Qualifikation (letzte Aktivität)</TableCell>
-              <TableCell>Mobilität</TableCell>
-              <TableCell>PLZ</TableCell>
-              <TableCell>Kontakt</TableCell>
+              <TableCell><h3>Name</h3></TableCell>
+              <TableCell><h3>Qualifikation (letzte Aktivität)</h3></TableCell>
+              <TableCell><h3>Mobilität</h3></TableCell>
+              <TableCell><h3>PLZ</h3></TableCell>
+              <TableCell><h3>Kontakt</h3></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
