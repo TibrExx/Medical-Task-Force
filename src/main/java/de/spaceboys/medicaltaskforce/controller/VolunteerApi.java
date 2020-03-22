@@ -42,6 +42,11 @@ public class VolunteerApi {
     return of(volunteerRepository.findById(id));
   }
 
+  @GetMapping("/google/{id}")
+  public ResponseEntity<Volunteer> getVolunteerByGoogleId(@PathVariable Long id) {
+    return of(volunteerRepository.findFirstByGoogleId(id));
+  }
+
   @PostMapping
   public ResponseEntity<Volunteer> createNewVolunteer(@Valid @RequestBody VolunteerDto volunteerDto) {
     return status(CREATED).body(volunteerRepository.save(volunteerMapper.volunteerDtoToVolunteer(volunteerDto)));
@@ -56,6 +61,23 @@ public class VolunteerApi {
     } else {
       return notFound().build();
     }
+  }
+
+  @PutMapping("/google/{id}")
+  public ResponseEntity<Volunteer> updateVolunteerByGoogleId(@PathVariable Long id,
+      @Valid @RequestBody VolunteerDto volunteerDto) {
+    Optional<Volunteer> volunteerOptional = volunteerRepository.findFirstByGoogleId(id);
+    if (volunteerOptional.isPresent()) {
+      return ok(volunteerRepository.save(volunteerMapper.volunteerDtoToVolunteer(volunteerDto)));
+    } else {
+      return notFound().build();
+    }
+  }
+
+  @DeleteMapping("/google/{id}")
+  public ResponseEntity<Volunteer> deleteVolunteerByGoogleId(@PathVariable Long id) {
+    volunteerRepository.deleteByGoogleId(id);
+    return noContent().build();
   }
 
   @DeleteMapping("/{id}")
