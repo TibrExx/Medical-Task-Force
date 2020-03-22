@@ -21,7 +21,7 @@ const qualifications = [
       { key: 'emergencyHelper', text: 'Rettungshelfer', value: 'emergencyHelper' },
       ];
 
-type SignUpFormState = {
+export interface SignUpFormState  {
   step: number,
   firstName: string,
   lastName: string,

@@ -16,7 +16,7 @@ export function toRestModel(signUpFormState: SignUpFormState): Volunteer {
         zipCode: 0,
         surname: signUpFormState.lastName,
         forename: signUpFormState.firstName,
-        qualification: signUpFormState.qualification,
+        qualification: signUpFormState.qualification.toString(),
         lastTimeActive: signUpFormState.lastTimeActive.toString(),
         mailAddress: signUpFormState.email,
         hasCar: signUpFormState.hasCar
