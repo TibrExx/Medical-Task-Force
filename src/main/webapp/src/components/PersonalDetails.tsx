@@ -35,6 +35,14 @@ class PersonalDetails extends Component<stepFormProps, {}> {
           />
         </Form.Field>
         <Form.Field>
+           <label>Postleitzahl</label>
+           <input
+            placeholder="PLZ"
+            onChange={this.props.handleChange("zipCode")}
+            defaultValue={values.zipCode}
+            />
+          </Form.Field>
+        <Form.Field>
           <label>Land</label>
           <input
             placeholder="Land"

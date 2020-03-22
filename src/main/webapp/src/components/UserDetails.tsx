@@ -82,7 +82,8 @@ class UserDetails extends Component<stepFormProps, {}> {
              <Form.Field>
                       <label>Zuletzt ausgeübt am</label>
                        <DatePicker
-                            onChange={this.handleDateChange}
+                            onSelect={this.handleDateChange}
+                            onChange = {this.props.handleChange('lastTimeActive')}
                             dateFormat='dd/MM/yyyy'
                             selected={this.state.startDate}
                             />
