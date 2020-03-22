@@ -49,18 +49,20 @@ public class VolunteerApi {
 
   @PostMapping
   public ResponseEntity<Volunteer> createNewVolunteer(@Valid @RequestBody VolunteerDto volunteerDto) {
-    return status(CREATED).body(volunteerRepository.save(volunteerMapper.volunteerDtoToVolunteer(volunteerDto)));
+    Optional<Volunteer> volunteerOptional = volunteerRepository.findFirstByGoogleId(volunteerDto.getGoogleId());
+
+    return volunteerOptional.map(volunteer -> status(CREATED)
+        .body(volunteerRepository.save(volunteerMapper.updateVolunteer(volunteer, volunteerDto)))).orElseGet(
+        () -> status(CREATED).body(volunteerRepository.save(volunteerMapper.volunteerDtoToVolunteer(volunteerDto))));
   }
 
   @PutMapping("/{id}")
   public ResponseEntity<Volunteer> updateVolunteer(@PathVariable Long id,
       @Valid @RequestBody VolunteerDto volunteerDto) {
     Optional<Volunteer> volunteerOptional = volunteerRepository.findById(id);
-    if (volunteerOptional.isPresent()) {
-      return ok(volunteerRepository.save(volunteerMapper.volunteerDtoToVolunteer(volunteerDto)));
-    } else {
-      return notFound().build();
-    }
+    return volunteerOptional
+        .map(volunteer -> ok(volunteerRepository.save(volunteerMapper.updateVolunteer(volunteer, volunteerDto))))
+        .orElseGet(() -> notFound().build());
   }
 
   @PutMapping("/google/{id}")
