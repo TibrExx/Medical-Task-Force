@@ -18,12 +18,14 @@ export interface Volunteer {
 
 
 export function toRestModel(signUpFormState: SignUpFormState): Volunteer {
+    console.log("formState: " + signUpFormState)
+
     return {
         zipCode: 0,
         surname: signUpFormState.lastName,
         forename: signUpFormState.firstName,
-        qualification: signUpFormState.qualification.toString(),
-        lastTimeActive: signUpFormState.lastTimeActive.toString(),
+        qualification: signUpFormState.qualification?.toString(),
+        lastTimeActive: signUpFormState.lastTimeActive?.toString(),
         mailAddress: signUpFormState.email,
         hasCar: signUpFormState.hasCar
     }

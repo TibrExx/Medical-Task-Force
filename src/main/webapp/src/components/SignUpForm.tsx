@@ -5,6 +5,12 @@ import Confirmation from "./Confirmation";
 import Success from "./Success";
 import stepFormProps from "./Models";
 
+interface Qualifiaction {
+    key: string,
+    text: string,
+    value: string
+}
+
 const qualifications = [
       { key: 'geriaticNurse', text: 'Altenpfleger/in', value: 'geriaticNurse' },
       { key: 'geriaticNurseHelper', text: 'Altenpflegehelfer/in', value: 'geriaticNurseHelper' },
@@ -30,7 +36,7 @@ export interface SignUpFormState  {
   city: string,
   country: string,
   phoneNumber: number,
-  qualification: {qualifications},
+  qualification: Qualifiaction,
   lastTimeActive: Date,
   description: string,
   hasCar: boolean,
