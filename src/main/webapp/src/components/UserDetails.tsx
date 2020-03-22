@@ -3,22 +3,8 @@ import { Form, Button } from "semantic-ui-react";
 import stepFormProps from "./Models";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import {qualifications} from "./SignUpForm";
 
-const qualifications = [
-      { key: 'geriaticNurse', text: 'Altenpfleger/in', value: 'geriaticNurse' },
-      { key: 'geriaticNurseHelper', text: 'Altenpflegehelfer/in', value: 'geriaticNurseHelper' },
-      { key: 'doctor', text: 'Arzt', value: 'doctor' },
-      { key: 'healthGeriaticNurse', text: 'Gesundheits- und Krankenpfleger/in', value: 'healthGeriaticNurse' },
-      { key: 'healtGeriaticNurseHelper', text: 'Gesundheits- und Krankenpflegehelfer/in', value: 'healtGeriaticNurseHelper' },
-      { key: 'midwife', text: 'Hebamme', value: 'midwife' },
-      { key: 'healthNurse', text: 'Heilerziehungspfleger/in', value: 'healthNurse' },
-      { key: 'medicalWorker', text: 'Medizinische Fachangestellte', value: 'medicalWorker' },
-      { key: 'emergencyParamedic', text: 'Notfallsanitäter/in', value: 'emergencyParamedic' },
-      { key: 'technicalAssistant', text: 'Operationstechnischer Assistent/in', value: 'technicalAssistant' },
-      { key: 'paramedicAssistant', text: 'Rettungsassistent', value: 'paramedicAssistant' },
-      { key: 'paramedic', text: 'Rettungssanitäter/in', value: 'paramedic' },
-      { key: 'emergencyHelper', text: 'Rettungshelfer', value: 'emergencyHelper' },
-      ];
 
 
 class UserDetails extends Component<stepFormProps, {}> {
