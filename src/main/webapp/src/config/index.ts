@@ -1,6 +1,7 @@
 
 const apiUrl = 'http://prod.eba-pipszcdb.eu-central-1.elasticbeanstalk.com';
-const apiUrlLocal = 'http://localhost:9000'
 const basePath = '/api/v1';
+const apiUrlLocal = 'http://localhost:9000'
+const googleClientId = '87896894959-9inbopi0v3cebs1rktlpk0vb70qd4vvu.apps.googleusercontent.com';
 
-export { apiUrl, apiUrlLocal, basePath };
+export { apiUrl, basePath , googleClientId, apiUrlLocal} ;

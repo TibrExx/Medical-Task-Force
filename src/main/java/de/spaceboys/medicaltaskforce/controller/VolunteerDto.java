@@ -46,6 +46,9 @@ public class VolunteerDto {
 
   private List<String> languages;
 
+  @NotNull
+  private Long googleId;
+
   private Boolean upToTwoDaysDuty;
 
   private Boolean upToFiveDaysDuty;
